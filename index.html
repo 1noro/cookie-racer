@@ -1,0 +1,92 @@
+<style>
+    body {
+        background-image: url("img/fondo-doge.jpg");
+    }
+
+    #galleta {
+        width: 400px;
+        /*position:absolute;*/
+        margin: auto;
+        
+        cursor: pointer;
+		
+		transition: all 0.1s;
+		-o-transition: all 0.1s;
+		-moz-transition: all 0.1s;
+		-webkit-transition: all 0.1s;
+		
+    }
+    
+    #p {
+        width: 400px;
+        height: 400px;
+        /*background-color: green;*/
+        margin: 50px auto;
+    }
+    
+    #p2 {
+        width: 400px;
+        /*background-color: green;*/
+        margin: 50px auto;
+    }
+    
+    #input {
+        font-size: 75px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        border-width: 0;
+        
+        width: 400px;
+        margin: 50px auto;
+        
+        border-radius: 10px;
+    }
+</style>
+
+<div id="p"><img id="galleta" src="img/cookie.png" onmousedown="increment2()" onmouseup="retroceso()"></div>
+
+<div id="p2">
+<input type="text" id="input" value="">
+</div>
+
+<script>
+
+var num=0,
+tiempo,
+maximo=100;
+document.getElementById('input').value=num=0
+
+function increment () {
+	var galleta = document.getElementById('galleta')
+	galleta.style.width="375px"
+	galleta.style.padding="12.5px"
+	var texto = document.getElementById('input')
+	num++
+	texto.value=num
+}
+
+function increment2(){
+	with(document.getElementById('galleta').style){
+    	width="375px";
+    	padding="12.5px"
+	}
+    num?(
+    		document.getElementById('input').value=num+=1,
+    		num>=maximo?(
+    	    		alert("El tiempo en segundos es \""+(((new Date()).getTime()-tiempo)/1000)+"\""),
+    	    		document.getElementById('input').value=num=0
+    	    ):0
+    		
+    ):(
+    	tiempo=(new Date()).getTime(),
+    	document.getElementById('input').value=num+=1
+    );
+}
+
+function retroceso () {
+	var galleta = document.getElementById('galleta')
+	galleta.style.width="400px"
+	galleta.style.padding=""
+}
+
+</script>
